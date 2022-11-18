@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -27,7 +28,11 @@ export class RegisterComponent implements OnInit {
   passFormControl = this.form.controls.password;
   codeFormControl = this.form.controls.code;
 
-  constructor() {}
+  constructor(private toastrService: ToastrService) {}
+
+  toast() {
+    this.toastrService.success('Toast working');
+  }
 
   ngOnInit(): void {}
 }
